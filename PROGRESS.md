@@ -4,9 +4,9 @@ Status per module. Updated by the mentor after each review.
 
 | # | Module | Status | Attempts | Notes |
 |---|---|---|---|---|
-| 1 | Basics | todo | 0 | |
-| 2 | Locators & Selectors | todo | 0 | |
-| 3 | Actions & Assertions | todo | 0 | |
+| 1 | Basics | passed | 1 | Solid first pass — title + heading assertions, web-first `expect`. Coaching note: prefer `getByRole` over tag selectors going forward. |
+| 2 | Locators & Selectors | passed | 1 | Correctly triggered and resolved strict-mode ambiguity with role/text locators, no CSS/XPath. Coaching notes: `.first()`/`.nth(0)` are redundant together; avoid actions with no trailing assertion. |
+| 3 | Actions & Assertions | passed | 2 | First submission failed lint (unnecessary `await` on locator creation caused `no-unused-locators` false positives) — fixed on resubmit. Good use of a negative assertion to verify checkbox scoping didn't leak between items. Learned `getByRole('listitem')` + string `.filter({hasText})` can replace `page.locator('li'/'label')` entirely. |
 | 4 | Navigation & Multiple Pages | todo | 0 | |
 | 5 | Forms & Input Handling | todo | 0 | |
 | 6 | Network | todo | 0 | |

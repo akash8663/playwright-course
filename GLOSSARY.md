@@ -15,3 +15,5 @@ Plain-language dictionary, one sentence per term. Grows whenever you ask "explai
 **Auto-waiting** — Playwright automatically pausing an action (like a click) until the element is actually ready (visible, enabled, stable), instead of you having to add manual delays.
 
 **Trace viewer** — a tool that replays a test run step-by-step, screenshots and all, so you can see exactly what the browser did and where it went wrong.
+
+**Web-first assertion** — an `expect(locator)` check that keeps retrying for a few seconds until it's true, instead of checking once and giving up immediately — this is why Playwright rarely needs manual delays.
