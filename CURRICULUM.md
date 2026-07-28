@@ -35,8 +35,8 @@ click/fill/check/select, Playwright's auto-waiting, `expect(locator)` web-first 
 
 ## 5. Forms & Input Handling
 **Folder:** `exercises/05-forms/`
-Text inputs, dropdowns/select, checkboxes/radios, file upload, drag-and-drop.
-**Acceptance criteria:** a test against `practice.expandtesting.com` that fills a multi-field form (including a dropdown and a checkbox/radio) and verifies a success state after submit.
+Dropdowns/select, checkboxes. (Adjusted from the original brief: `practice.expandtesting.com` splits these controls across separate single-purpose pages with no unified submit/success flow, so this module combines two of them instead of one multi-field form.)
+**Acceptance criteria:** two tests against `practice.expandtesting.com` — one selects an option on `/dropdown` and asserts the selected value, one checks then unchecks a checkbox on `/checkboxes` and asserts both states — using web-first assertions.
 
 ## 6. Network
 **Folder:** `exercises/06-network/`
