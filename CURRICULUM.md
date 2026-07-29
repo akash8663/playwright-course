@@ -40,9 +40,9 @@ Dropdowns/select, checkboxes. (Adjusted from the original brief: `practice.expan
 
 ## 6. Network
 **Folder:** `exercises/06-network/`
-Waiting for responses (`page.waitForResponse`), intercepting/mocking requests (`page.route`), asserting on API calls made by the page.
-**Acceptance criteria:** a test that mocks at least one network response with `page.route` and asserts the UI reflects the mocked data.
-**Constraint:** no real network dependency for the mocked assertion — it must pass even if the real backend is down.
+Waiting for responses (`page.waitForResponse`), intercepting/mocking requests (`page.route`), asserting on API calls made by the page. (Adjusted from the original brief: none of the stable practice-target sites have a verifiable real-API call to intercept, so this module uses a small `page.setContent()` fixture — a button that `fetch`es a fake API URL — instead of a real site. See the module README for the fixture markup.)
+**Acceptance criteria:** a test that mocks a network response with `page.route`/`route.fulfill`, asserts the UI reflects the mocked data, and asserts the request was actually made.
+**Constraint:** no real network dependency for the mocked assertion — it must pass even if the real backend is down (in this case, literally true — there is no real backend).
 
 ## 7. Authentication & State
 **Folder:** `exercises/07-auth/`
