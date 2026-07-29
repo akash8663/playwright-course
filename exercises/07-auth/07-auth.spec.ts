@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 // import dotenv from 'dotenv';
 // dotenv.config({ path: './.env' });
 
+test.describe.configure({ mode: 'serial' });
 // Sanity check so the suite stays green before you start. Replace/extend below.
 test('sanity', async ({ page }) => {
   expect(page).toBeTruthy();
