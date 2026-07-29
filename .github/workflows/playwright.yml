@@ -22,7 +22,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright Tests
       run: npm test
-      continue-on-error: true
+      continue-on-error: false
       env:
         SAUCEDEMO_USERNAME: ${{ secrets.SAUCEDEMO_USERNAME }}
         SAUCEDEMO_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
