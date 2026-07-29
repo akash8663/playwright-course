@@ -15,8 +15,6 @@ test('Verify e2e happy path', async ({page}) => {
   await todoBox.press('Enter');
   const todoItem1 = page.getByRole('listitem').filter({ hasText: 'Pay bills' }).getByRole('checkbox');
 
-  // let todoItem1 = page.locator('li')
-  //             .filter({ has: page.locator('label', { hasText: 'Pay bills' }) }).getByRole('checkbox');
   await todoItem1.check();
   await expect(todoItem1).toBeChecked();
 
