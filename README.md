@@ -9,7 +9,7 @@ A guided course from Playwright basics to advanced, run as a mentor/proctor rela
 3. **You write the code** in the current module's `exercises/NN-topic/*.spec.ts` file.
 4. **Hints, not answers.** Stuck? Ask for a hint — you'll get a nudge (a concept name, a doc pointer, a leading question), not code. From module 3 onward, if a test fails intermittently, the first hint is "open the trace viewer and diagnose it yourself" before the mentor explains the cause.
 5. **Review.** When you say you're done, the mentor runs your test and lint, and grades against [RUBRIC.md](RUBRIC.md).
-6. **PASS or FAIL**, with specific reasons. FAIL → revise and resubmit. PASS → [PROGRESS.md](PROGRESS.md) is updated and the next module is handed out.
+6. **PASS or FAIL**, with specific reasons. FAIL → revise and resubmit. PASS → [PROGRESS.md](PROGRESS.md) is updated, the changes are committed and pushed to GitHub, and the next module is handed out.
 
 **At any point**, say "explain that simply" or "what does X mean?" and the mentor stops and re-explains in plain language, no jargon — this is always available, not a sign of falling behind. New terms get added to [GLOSSARY.md](GLOSSARY.md) as a running personal dictionary.
 
