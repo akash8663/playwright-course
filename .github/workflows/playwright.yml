@@ -21,23 +21,23 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    # - name: Run Playwright Tests
-    #   run: npm test
-    #   continue-on-error: false
-    #   env:
-    #     SAUCEDEMO_USERNAME: ${{ secrets.SAUCEDEMO_USERNAME }}
-    #     SAUCEDEMO_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
-
-    - name: Generate Linux snapshot baselines
-      run: npx playwright test --update-snapshots
-      continue-on-error: true
+    - name: Run Playwright Tests
+      run: npm test
+      continue-on-error: false
       env:
         SAUCEDEMO_USERNAME: ${{ secrets.SAUCEDEMO_USERNAME }}
         SAUCEDEMO_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
-    - uses: actions/upload-artifact@v6
-      with:
-        name: base-screenshots
-        path: exercises/**/*.spec.ts-snapshots/**
+
+    # - name: Generate Linux snapshot baselines
+    #   run: npx playwright test --update-snapshots
+    #   continue-on-error: true
+    #   env:
+    #     SAUCEDEMO_USERNAME: ${{ secrets.SAUCEDEMO_USERNAME }}
+    #     SAUCEDEMO_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
+    # - uses: actions/upload-artifact@v6
+    #   with:
+    #     name: base-screenshots
+    #     path: exercises/**/*.spec.ts-snapshots/**
 
     - uses: actions/upload-artifact@v6
       if: failure()
