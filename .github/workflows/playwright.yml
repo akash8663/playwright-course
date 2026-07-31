@@ -39,6 +39,17 @@ jobs:
     #     name: base-screenshots
     #     path: exercises/**/*.spec.ts-snapshots/**
 
+    - name: Send custom message to Slack
+      id: slack
+      uses: slackapi/slack-github-action@v2.0.0
+      with:
+        webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+        webhook-type: incoming-webhook
+        payload: |
+          {
+            "text": "GitHub Action build result: ${{ job.status }}\nRepo: ${{ github.repository }}\nBranch: ${{ github.ref_name }}"
+          }
+            
     - uses: actions/upload-artifact@v6
       if: failure()
       with:
