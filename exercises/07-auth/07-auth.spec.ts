@@ -1,6 +1,4 @@
 import { test, expect } from '@playwright/test';
-// import dotenv from 'dotenv';
-// dotenv.config({ path: './.env' });
 
 test.describe.configure({ mode: 'serial' });
 // Sanity check so the suite stays green before you start. Replace/extend below.
@@ -13,7 +11,8 @@ test('auth', async ({ page }) => {
 
   const username = process.env.SAUCEDEMO_USERNAME;
   const password = process.env.SAUCEDEMO_PASSWORD;
-
+  console.log(`Logging in with username: ${username} and password: ${password}`);
+       
   if (!username || !password) {
     throw new Error('Missing SAUCEDEMO_USERNAME or SAUCEDEMO_PASSWORD environment variable');
   }
