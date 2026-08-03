@@ -6,7 +6,11 @@ export class CheckoutPage {
     readonly lastNameInput: Locator;
     readonly postalCodeInput: Locator;
     readonly continueButton: Locator;
-    readonly checkoutOverviewTitle: Locator;
+    readonly finishButton: Locator;
+    readonly checkoutInformationPageTitle: Locator;
+    readonly checkoutOverviewPageTitle: Locator;
+    readonly checkoutCompletePageTitle: Locator;
+    readonly checkoutConfirmationMessage: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -14,7 +18,11 @@ export class CheckoutPage {
         this.lastNameInput = page.getByPlaceholder('Last Name');
         this.postalCodeInput = page.getByPlaceholder('Zip/Postal Code');
         this.continueButton = page.getByRole('button', { name: 'Continue' });
-        this.checkoutOverviewTitle = page.getByText('Checkout: Your Information' );
+        this.finishButton = page.getByRole('button', { name: 'Finish' });
+        this.checkoutInformationPageTitle = page.getByText('Checkout: Your Information' );
+        this.checkoutOverviewPageTitle = page.getByText('Checkout: Overview' );
+        this.checkoutCompletePageTitle = page.getByText('Checkout: Complete!' );
+        this.checkoutConfirmationMessage = page.getByText('Thank you for your order!' );
     }
     
     async fillCheckoutInformation(firstName: string, lastName: string, postalCode: string) {
@@ -27,8 +35,23 @@ export class CheckoutPage {
         await this.continueButton.click();
     }
 
-    async isLoaded() {
-        return await this.checkoutOverviewTitle.isVisible();
+    async finishCheckout() {
+        await this.finishButton.click();
     }
-    
+
+    async isCheckoutInformationPageLoaded() {
+        return await this.checkoutInformationPageTitle.isVisible();
+    }
+
+    async isCheckoutOverviewPageLoaded() {
+        return await this.checkoutOverviewPageTitle.isVisible();
+    }
+
+    async isCheckoutCompletePageLoaded() {
+        return await this.checkoutCompletePageTitle.isVisible();
+    }
+
+    async isCheckoutConfirmationMessageVisible() {
+        return await this.checkoutConfirmationMessage.isVisible();
+    }
 }

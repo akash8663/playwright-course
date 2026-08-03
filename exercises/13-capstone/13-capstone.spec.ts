@@ -19,11 +19,15 @@ test('Verify user can login to the App', async ({ LoginPage, ProductPage, Checko
   expect(await ProductPage.getCartItemCount()).toBe('1');
   
   await ProductPage.goToCheckout();
-  expect(await CheckoutPage.isLoaded()).toBeTruthy();
+  expect(await CheckoutPage.isCheckoutInformationPageLoaded()).toBeTruthy();
 
   await CheckoutPage.fillCheckoutInformation('John', 'Doe', '12345');
   await CheckoutPage.continueCheckout();
-  expect(await CheckoutPage.checkoutOverviewTitle.isVisible()).toBeTruthy();
+  expect(await CheckoutPage.isCheckoutOverviewPageLoaded()).toBeTruthy();
+  await CheckoutPage.finishCheckout();
+  expect(await CheckoutPage.isCheckoutCompletePageLoaded()).toBeTruthy();
+  expect(await CheckoutPage.isCheckoutConfirmationMessageVisible()).toBeTruthy();
+  
   
 });
 
